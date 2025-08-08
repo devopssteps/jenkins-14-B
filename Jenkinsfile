@@ -2,14 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('build') {
+        stage('clone') {
             steps {
-                echo 'Hello World Build111111'
+                echo 'clone code............'
+                checkout scm
             }
         }
-        stage('Deploy') {
+        stage('build imgae') {
             steps {
                 echo 'Hello World deploy 222222'
+                sh 'docker build -t 111 .'
+                
             }
         }
     }
