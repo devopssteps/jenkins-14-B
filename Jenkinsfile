@@ -31,14 +31,20 @@ pipeline {
             //     echo "Building Docker image with tag 111: ${params.IMAGE_TAG}"
                 
             // }
-            if (params.IMAGE_TAG == 'latest') {
-                echo 'latest image...'
+            steps{
+                script{
+                   if (params.IMAGE_TAG == 'latest') {
+                        echo 'latest image...'
             
             }
-            else {
-                echo 'Not latest'
-            }
+                    else {
+                        echo 'Not latest'
+                    }
+     
+                }    
 
+            }
+            
 
         }
     }
