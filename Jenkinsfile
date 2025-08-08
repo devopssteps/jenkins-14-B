@@ -24,13 +24,22 @@ pipeline {
             }
         }
         stage('push imgae') {
-            when {
-                expression { return params.PUSH_IMAGE }
-            }
-            steps {
-                echo "Building Docker image with tag 111: ${params.IMAGE_TAG}"
+            // when {
+            //     expression { return params.PUSH_IMAGE }
+            // }
+            // steps {
+            //     echo "Building Docker image with tag 111: ${params.IMAGE_TAG}"
                 
+            // }
+            if (params.IMAGE_TAG == 'latest') {
+                echo 'latest image...'
+            
             }
+            else {
+                echo 'Not latest'
+            }
+
+
         }
     }
     post {
